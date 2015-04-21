@@ -33,8 +33,20 @@ dependencies {
         mavenCentral()
     }
 
+    compile 'com.squareup:javawriter:2.5.0'
+
+    // Dagger
+    compile ('com.squareup.dagger:dagger:1.2.2') {
+        exclude module: 'javawriter'
+    }
+    compile ('com.squareup.dagger:dagger-compiler:1.2.2') {
+        exclude module: 'javawriter'
+    }
     // Espresso
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.0')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.0'){
+        exclude group: 'javax.inject'
+        exclude module: 'javawriter'
+    }
     androidTestCompile('com.android.support.test:testing-support-lib:0.1')
 
     // Robolectric
