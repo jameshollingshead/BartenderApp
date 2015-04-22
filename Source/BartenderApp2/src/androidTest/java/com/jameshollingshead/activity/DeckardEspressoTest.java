@@ -22,6 +22,6 @@ public class DeckardEspressoTest extends ActivityInstrumentationTestCase2<Deckar
     }
 
     public void testActivityShouldHaveText() throws InterruptedException {
-        onView(withId(R.id.text)).check(matches(withText("Hello Espresso!")));
+        onView(withId(R.id.text)).check(matches(withText("foo")));
     }
 }
