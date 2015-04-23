@@ -1,0 +1,9 @@
+.gradle
+local.properties/
+release.properties/
+.idea/
+.DS_Store
+build/
+*.iml
+*.ipr
+*.orig
