@@ -11,12 +11,17 @@ import javax.inject.Provider;
  * instance provision of types served by {@code @Provides} methods.
  */
 public final class DummyModule$$ModuleAdapter extends ModuleAdapter<DummyModule> {
-  private static final String[] INJECTS = { "members/com.jameshollingshead.activity.DeckardActivity", };
+  private static final String[] INJECTS = { "members/com.jameshollingshead.DeckardActivity", "members/com.jameshollingshead.DeckardApplication", };
   private static final Class<?>[] STATIC_INJECTIONS = { };
   private static final Class<?>[] INCLUDES = { };
 
   public DummyModule$$ModuleAdapter() {
-    super(com.jameshollingshead.DummyModule.class, INJECTS, STATIC_INJECTIONS, false /*overrides*/, INCLUDES, true /*complete*/, true /*library*/);
+    super(com.jameshollingshead.DummyModule.class, INJECTS, STATIC_INJECTIONS, false /*overrides*/, INCLUDES, true /*complete*/, false /*library*/);
+  }
+
+  @Override
+  public DummyModule newModule() {
+    return new com.jameshollingshead.DummyModule();
   }
 
   /**
@@ -25,61 +30,33 @@ public final class DummyModule$$ModuleAdapter extends ModuleAdapter<DummyModule>
    */
   @Override
   public void getBindings(BindingsGroup bindings, DummyModule module) {
-    bindings.contributeProvidesBinding("android.app.Application", new ProvideApplicationContextProvidesAdapter(module));
-    bindings.contributeProvidesBinding("java.lang.String", new ProvidesInjectedFooProvidesAdapter(module));
+    bindings.contributeProvidesBinding("com.jameshollingshead.Foo", new ProvideFooProvidesAdapter(module));
   }
 
   /**
-   * A {@code Binding<android.app.Application>} implementation which satisfies
+   * A {@code Binding<com.jameshollingshead.Foo>} implementation which satisfies
    * Dagger's infrastructure requirements including:
    *
-   * Being a {@code Provider<android.app.Application>} and handling creation and
+   * Being a {@code Provider<com.jameshollingshead.Foo>} and handling creation and
    * preparation of object instances.
    */
-  public static final class ProvideApplicationContextProvidesAdapter extends ProvidesBinding<android.app.Application>
-      implements Provider<android.app.Application> {
+  public static final class ProvideFooProvidesAdapter extends ProvidesBinding<Foo>
+      implements Provider<Foo> {
     private final DummyModule module;
 
-    public ProvideApplicationContextProvidesAdapter(DummyModule module) {
-      super("android.app.Application", IS_SINGLETON, "com.jameshollingshead.DummyModule", "provideApplicationContext");
+    public ProvideFooProvidesAdapter(DummyModule module) {
+      super("com.jameshollingshead.Foo", NOT_SINGLETON, "com.jameshollingshead.DummyModule", "provideFoo");
       this.module = module;
-      setLibrary(true);
+      setLibrary(false);
     }
 
     /**
      * Returns the fully provisioned instance satisfying the contract for
-     * {@code Provider<android.app.Application>}.
+     * {@code Provider<com.jameshollingshead.Foo>}.
      */
     @Override
-    public android.app.Application get() {
-      return module.provideApplicationContext();
-    }
-  }
-
-  /**
-   * A {@code Binding<java.lang.String>} implementation which satisfies
-   * Dagger's infrastructure requirements including:
-   *
-   * Being a {@code Provider<java.lang.String>} and handling creation and
-   * preparation of object instances.
-   */
-  public static final class ProvidesInjectedFooProvidesAdapter extends ProvidesBinding<String>
-      implements Provider<String> {
-    private final DummyModule module;
-
-    public ProvidesInjectedFooProvidesAdapter(DummyModule module) {
-      super("java.lang.String", NOT_SINGLETON, "com.jameshollingshead.DummyModule", "providesInjectedFoo");
-      this.module = module;
-      setLibrary(true);
-    }
-
-    /**
-     * Returns the fully provisioned instance satisfying the contract for
-     * {@code Provider<java.lang.String>}.
-     */
-    @Override
-    public String get() {
-      return module.providesInjectedFoo();
+    public Foo get() {
+      return module.provideFoo();
     }
   }
 }

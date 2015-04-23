@@ -1,5 +1,6 @@
 package com.jameshollingshead.activity;
 
+import com.jameshollingshead.DeckardActivity;
 import com.jameshollingshead.R;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.LargeTest;
@@ -22,6 +23,6 @@ public class DeckardEspressoTest extends ActivityInstrumentationTestCase2<Deckar
     }
 
     public void testActivityShouldHaveText() throws InterruptedException {
-        onView(withId(R.id.text)).check(matches(withText("foo")));
+        onView(withId(R.id.text)).check(matches(withText("Injected Foo")));
     }
 }

@@ -14,11 +14,12 @@ public class DeckardApplication extends Application {
     @Override public void onCreate(){
         super.onCreate();
 
-        graph = ObjectGraph.create(new DummyModule(this));
+        graph = ObjectGraph.create(new DummyModule());
+//        graph = ObjectGraph.create(getModules());
     }
 
 //    public List<Object> getModules(){
-//        return Arrays.asList(new DummyModule(this));
+//        return Arrays.asList(new DummyModule());
 //    }
 
     public void inject(Object object){

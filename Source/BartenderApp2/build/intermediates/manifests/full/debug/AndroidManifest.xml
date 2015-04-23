@@ -10,7 +10,7 @@
 
     <application android:name="com.jameshollingshead.DeckardApplication" >
         <activity
-            android:name="com.jameshollingshead.activity.DeckardActivity"
+            android:name="com.jameshollingshead.DeckardActivity"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

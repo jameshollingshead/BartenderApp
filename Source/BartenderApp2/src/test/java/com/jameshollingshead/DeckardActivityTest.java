@@ -1,6 +1,6 @@
 package com.jameshollingshead;
 
-import com.jameshollingshead.activity.DeckardActivity;
+import com.jameshollingshead.DeckardActivity;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

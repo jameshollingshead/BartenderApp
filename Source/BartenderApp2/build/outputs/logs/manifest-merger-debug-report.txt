@@ -19,10 +19,10 @@ application
 ADDED from AndroidManifest.xml:7:5
 	android:name
 		ADDED from AndroidManifest.xml:7:18
-activity#com.jameshollingshead.activity.DeckardActivity
+activity#com.jameshollingshead.DeckardActivity
 ADDED from AndroidManifest.xml:8:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:8:81
+		ADDED from AndroidManifest.xml:8:72
 	android:name
 		ADDED from AndroidManifest.xml:8:19
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
