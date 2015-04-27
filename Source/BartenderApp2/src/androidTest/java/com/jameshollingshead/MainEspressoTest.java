@@ -22,11 +22,13 @@ public class MainEspressoTest extends ActivityInstrumentationTestCase2<MainActiv
         getActivity();
     }
 
-    public void testActivityShouldHaveText() throws InterruptedException {
-        onView(withId(R.id.text)).check(matches(withText("Injected Foo")));
-    }
+
 
     public void testMainActivityWindowHasSearchButton() throws InterruptedException{
         onView(withId(R.id.searchButton)).check(matches(withText("Search")));
+    }
+
+    public void testMainActivityWindowHasSearchLabel() throws InterruptedException {
+        onView(withId(R.id.drinkSearchLabel)).check(matches(withText("Search by drink name")));
     }
 }

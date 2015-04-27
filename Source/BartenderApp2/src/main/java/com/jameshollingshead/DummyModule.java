@@ -7,7 +7,8 @@ import dagger.Provides;
  * Created by jhollingshead on 4/22/15.
  */
 @Module(
-        injects = {MainActivity.class, MainApplication.class}
+        injects = {MainActivity.class, MainApplication.class},
+        library = true
 )
 
 public class DummyModule {

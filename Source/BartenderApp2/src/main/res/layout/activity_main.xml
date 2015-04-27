@@ -25,14 +25,15 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"/>
 
+        <TextView
+            android:id="@+id/drinkSearchLabel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Search by drink name"
+            android:layout_alignBottom="@+id/searchField"
+            android:layout_alignParentStart="true"/>
+
 
     </RelativeLayout>
-
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello Espresso!"
-        />
 
 </LinearLayout>
