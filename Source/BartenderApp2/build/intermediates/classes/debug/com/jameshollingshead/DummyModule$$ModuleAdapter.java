@@ -11,7 +11,7 @@ import javax.inject.Provider;
  * instance provision of types served by {@code @Provides} methods.
  */
 public final class DummyModule$$ModuleAdapter extends ModuleAdapter<DummyModule> {
-  private static final String[] INJECTS = { "members/com.jameshollingshead.DeckardActivity", "members/com.jameshollingshead.DeckardApplication", };
+  private static final String[] INJECTS = { "members/com.jameshollingshead.MainActivity", "members/com.jameshollingshead.MainApplication", };
   private static final Class<?>[] STATIC_INJECTIONS = { };
   private static final Class<?>[] INCLUDES = { };
 

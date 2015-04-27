@@ -7,14 +7,14 @@ import android.widget.TextView;
 import javax.inject.Inject;
 
 
-public class DeckardActivity extends Activity {
+public class MainActivity extends Activity {
     @Inject Foo fooObject;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-      ((DeckardApplication) getApplication()).inject(this);
-    setContentView(R.layout.deckard);
+      ((MainApplication) getApplication()).inject(this);
+    setContentView(R.layout.main);
 
 
       TextView t = new TextView(this);

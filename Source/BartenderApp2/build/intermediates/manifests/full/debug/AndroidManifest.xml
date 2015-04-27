@@ -8,9 +8,9 @@
         android:minSdkVersion="18"
         android:targetSdkVersion="18" />
 
-    <application android:name="com.jameshollingshead.DeckardApplication" >
+    <application android:name="com.jameshollingshead.MainApplication" >
         <activity
-            android:name="com.jameshollingshead.DeckardActivity"
+            android:name="com.jameshollingshead.MainActivity"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

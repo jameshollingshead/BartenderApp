@@ -7,7 +7,7 @@ import java.util.List;
 
 import dagger.ObjectGraph;
 
-public class DeckardApplication extends Application {
+public class MainApplication extends Application {
 
     private ObjectGraph graph;
 

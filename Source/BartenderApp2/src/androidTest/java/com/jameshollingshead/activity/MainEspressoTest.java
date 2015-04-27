@@ -1,6 +1,6 @@
 package com.jameshollingshead.activity;
 
-import com.jameshollingshead.DeckardActivity;
+import com.jameshollingshead.MainActivity;
 import com.jameshollingshead.R;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.LargeTest;
@@ -10,10 +10,10 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 @LargeTest
-public class DeckardEspressoTest extends ActivityInstrumentationTestCase2<DeckardActivity> {
+public class MainEspressoTest extends ActivityInstrumentationTestCase2<MainActivity> {
 
-    public DeckardEspressoTest() {
-        super(DeckardActivity.class);
+    public MainEspressoTest() {
+        super(MainActivity.class);
     }
 
     @Override
