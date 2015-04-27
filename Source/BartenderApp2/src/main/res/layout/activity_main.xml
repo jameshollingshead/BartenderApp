@@ -4,10 +4,35 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="57dp">
+        <EditText
+            android:layout_width="337dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/searchField"
+            android:layout_alignBottom="@+id/searchButton"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/searchButton"
+            android:singleLine="true"/>
+
+        <Button
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:id="@+id/searchButton"
+            android:layout_gravity="right"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"/>
+
+
+    </RelativeLayout>
+
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Hello Espresso!"
         />
+
 </LinearLayout>

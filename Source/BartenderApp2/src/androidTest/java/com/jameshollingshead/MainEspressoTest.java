@@ -25,4 +25,8 @@ public class MainEspressoTest extends ActivityInstrumentationTestCase2<MainActiv
     public void testActivityShouldHaveText() throws InterruptedException {
         onView(withId(R.id.text)).check(matches(withText("Injected Foo")));
     }
+
+    public void testMainActivityWindowHasSearchButton() throws InterruptedException{
+        onView(withId(R.id.searchButton)).check(matches(withText("Search")));
+    }
 }
