@@ -14,7 +14,7 @@ public class MainActivity extends Activity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
       ((MainApplication) getApplication()).inject(this);
-    setContentView(R.layout.main);
+    setContentView(R.layout.activity_main);
 
 
       TextView t = new TextView(this);
