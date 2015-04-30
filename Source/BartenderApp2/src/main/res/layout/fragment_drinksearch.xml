@@ -7,11 +7,32 @@
               android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/dummy_text"
+        android:id="@+id/drink_search_label"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="This is some text"
+        android:layout_height="36dp"
+        android:text="@string/drink_search_label_text"
         />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/drink_search_text_box"
+            android:layout_gravity="center_horizontal"
+            android:singleLine="true"
+            android:layout_toStartOf="@+id/drink_search_search_button"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:id="@+id/drink_search_search_button"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
 
 
 </LinearLayout>

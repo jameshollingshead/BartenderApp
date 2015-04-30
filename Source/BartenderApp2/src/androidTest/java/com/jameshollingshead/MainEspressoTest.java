@@ -25,10 +25,10 @@ public class MainEspressoTest extends ActivityInstrumentationTestCase2<MainActiv
 
 
     public void testMainActivityWindowHasSearchButton() throws InterruptedException{
-        onView(withId(R.id.searchButton)).check(matches(withText("Search")));
+        onView(withId(R.id.drink_search_search_button)).check(matches(withText("Search")));
     }
 
     public void testMainActivityWindowHasSearchLabel() throws InterruptedException {
-        onView(withId(R.id.drinkSearchLabel)).check(matches(withText("Search by drink name")));
+        onView(withId(R.id.drink_search_label)).check(matches(withText("Search for drink by name")));
     }
 }

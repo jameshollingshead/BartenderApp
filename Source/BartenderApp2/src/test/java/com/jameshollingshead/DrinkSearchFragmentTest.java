@@ -6,6 +6,8 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import junit.framework.Assert;
@@ -19,6 +21,7 @@ import org.robolectric.annotation.Config;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
+import static junit.framework.Assert.assertTrue;
 import static org.robolectric.util.FragmentTestUtil.startFragment;
 
 /**
@@ -36,7 +39,35 @@ public class DrinkSearchFragmentTest {
         assertNotNull(fragment);
     }
 
+    @Test
+    public void DrinkSearchFragmentContainsDrinkSearchLabel() throws Exception {
+        Activity activity = Robolectric.buildActivity(MainActivity.class)
+                .create().start().resume().visible().get();
+        assertNotNull(activity);
 
+        TextView textView = (TextView) activity.findViewById(R.id.drink_search_label);
+        assertNotNull(textView);
+    }
+
+    @Test
+    public void DrinkSearchFragmentContainsEditableDrinkSearchTextBox() throws Exception {
+        Activity activity = Robolectric.buildActivity(MainActivity.class)
+                .create().start().resume().visible().get();
+        assertNotNull(activity);
+
+        EditText editText = (EditText) activity.findViewById(R.id.drink_search_text_box);
+        assertNotNull(editText);
+    }
+
+    @Test
+    public void DrinkSearchFragmentContainsSearchButton() throws Exception {
+        Activity activity = Robolectric.buildActivity(MainActivity.class)
+                .create().start().resume().visible().get();
+        assertNotNull(activity);
+
+        Button searchButton = (Button) activity.findViewById(R.id.drink_search_search_button);
+        assertNotNull(searchButton);
+    }
 
 
 }
