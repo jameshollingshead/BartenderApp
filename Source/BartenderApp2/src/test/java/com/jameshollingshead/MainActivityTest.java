@@ -27,19 +27,19 @@ public class MainActivityTest {
     String drinkSearchFragmentTag = "DrinkSearchFragment";
 
     @Test
-    public void testMainActivityExists() throws Exception {
+    public void MainActivityIsNotNull() throws Exception {
         assertTrue(Robolectric.buildActivity(MainActivity.class).create().get() != null);
     }
 
     @Test
-    public void testMainActivityContentViewIsActivityMain() throws Exception {
+    public void GivenTheActivityIsMainActivityThenTheContentViewIsActivityMain() throws Exception {
         Activity activity = Robolectric.buildActivity(MainActivity.class).create().get();
 
         assertEquals(R.id.activity_main, Robolectric.shadowOf(activity).getContentView().getId());
     }
 
     @Test
-    public void testActivityMainContainsDrinkSearchFragment() throws Exception {
+    public void TheContentViewActivityMainContainsDrinkSearchFragment() throws Exception {
         Activity activity = Robolectric.buildActivity(MainActivity.class)
                 .create().start().resume().visible().get();
 

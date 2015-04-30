@@ -1,6 +1,5 @@
 package com.jameshollingshead;
 
-//import android.app.Fragment;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,6 +14,6 @@ public class DrinkSearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
-        return inflater.inflate(R.layout.activity_main, container, false);
+        return inflater.inflate(R.layout.fragment_drinksearch, container, false);
     }
 }
