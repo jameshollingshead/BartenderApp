@@ -15,6 +15,18 @@ public class MainActivity extends FragmentActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
+//      if(findViewById(R.id.activity_main) != null)
+//      {
+//          if(savedInstanceState != null)
+//              return;
+//      }
+
+      //Create new fragment to be placed in the layout.
+      DrinkSearchFragment drinkSearchFragment = new DrinkSearchFragment();
+
+      getSupportFragmentManager().beginTransaction()
+              .add(R.id.activity_main, drinkSearchFragment, "DrinkSearchFragment").commit();
+
 
 
   }

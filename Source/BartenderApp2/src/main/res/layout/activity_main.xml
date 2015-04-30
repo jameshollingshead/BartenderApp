@@ -1,40 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:id="@+id/activity_main"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="57dp">
-        <EditText
-            android:layout_width="337dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/searchField"
-            android:layout_alignBottom="@+id/searchButton"
-            android:layout_alignParentStart="true"
-            android:layout_toStartOf="@+id/searchButton"
-            android:singleLine="true"/>
 
-        <Button
-            android:layout_width="95dp"
-            android:layout_height="wrap_content"
-            android:text="Search"
-            android:id="@+id/searchButton"
-            android:layout_gravity="right"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"/>
-
-        <TextView
-            android:id="@+id/drinkSearchLabel"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Search by drink name"
-            android:layout_alignBottom="@+id/searchField"
-            android:layout_alignParentStart="true"/>
-
-
-    </RelativeLayout>
-
-</LinearLayout>
+</FrameLayout>
