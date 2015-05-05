@@ -36,4 +36,11 @@ public class SearchResultsActivityTest {
         assertTrue(Robolectric.buildActivity(SearchResultsActivity.class).create().get() != null);
     }
 
+    @Test
+    public void  searchResultsActivityUsesActivitySearchResultsAsTheContentView() throws Exception {
+        Activity activity = Robolectric.buildActivity(SearchResultsActivity.class).create().get();
+
+        assertEquals(R.id.activity_search_results, Robolectric.shadowOf(activity).getContentView().getId());
+    }
+
 }
