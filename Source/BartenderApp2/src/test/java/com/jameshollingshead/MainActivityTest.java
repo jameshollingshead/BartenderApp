@@ -18,6 +18,9 @@ import static org.junit.Assert.assertTrue;
 import static org.robolectric.RobolectricShadowOfLevel16.shadowOf;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
+import android.widget.Button;
+
+import junit.framework.Assert;
 
 
 @RunWith(RobolectricTestRunner.class)
@@ -25,6 +28,7 @@ import android.view.View;
 public class MainActivityTest {
 
     String drinkSearchFragmentTag = "DrinkSearchFragment";
+
 
     @Test
     public void MainActivityIsNotNull() throws Exception {
@@ -51,4 +55,5 @@ public class MainActivityTest {
 
         assertEquals(drinkSearchFragmentTag, drinkSearchFragment.getTag());
     }
+
 }
