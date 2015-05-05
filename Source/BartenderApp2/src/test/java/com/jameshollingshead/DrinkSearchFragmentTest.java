@@ -33,14 +33,14 @@ public class DrinkSearchFragmentTest {
 
 
     @Test
-    public void DrinkSearchFragmentIsNotNull() throws Exception {
+    public void drinkSearchFragmentIsNotNull() throws Exception {
         DrinkSearchFragment fragment = new DrinkSearchFragment();
         startFragment(fragment);
         assertNotNull(fragment);
     }
 
     @Test
-    public void DrinkSearchFragmentContainsDrinkSearchLabel() throws Exception {
+    public void drinkSearchFragmentContainsDrinkSearchLabel() throws Exception {
         Activity activity = Robolectric.buildActivity(MainActivity.class)
                 .create().start().resume().visible().get();
         assertNotNull(activity);
@@ -50,7 +50,7 @@ public class DrinkSearchFragmentTest {
     }
 
     @Test
-    public void DrinkSearchFragmentContainsEditableDrinkSearchTextBox() throws Exception {
+    public void drinkSearchFragmentContainsEditableDrinkSearchTextBox() throws Exception {
         Activity activity = Robolectric.buildActivity(MainActivity.class)
                 .create().start().resume().visible().get();
         assertNotNull(activity);
@@ -60,7 +60,7 @@ public class DrinkSearchFragmentTest {
     }
 
     @Test
-    public void DrinkSearchFragmentContainsSearchButton() throws Exception {
+    public void drinkSearchFragmentContainsSearchButton() throws Exception {
         Activity activity = Robolectric.buildActivity(MainActivity.class)
                 .create().start().resume().visible().get();
         assertNotNull(activity);

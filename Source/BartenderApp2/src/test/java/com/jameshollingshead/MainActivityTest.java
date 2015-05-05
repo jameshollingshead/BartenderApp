@@ -31,19 +31,19 @@ public class MainActivityTest {
 
 
     @Test
-    public void MainActivityIsNotNull() throws Exception {
+    public void mainActivityIsNotNull() throws Exception {
         assertTrue(Robolectric.buildActivity(MainActivity.class).create().get() != null);
     }
 
     @Test
-    public void GivenTheActivityIsMainActivityThenTheContentViewIsActivityMain() throws Exception {
+    public void givenTheActivityIsMainActivityThenTheContentViewIsActivityMain() throws Exception {
         Activity activity = Robolectric.buildActivity(MainActivity.class).create().get();
 
         assertEquals(R.id.activity_main, Robolectric.shadowOf(activity).getContentView().getId());
     }
 
     @Test
-    public void TheContentViewActivityMainContainsDrinkSearchFragment() throws Exception {
+    public void theContentViewActivityMainContainsDrinkSearchFragment() throws Exception {
         Activity activity = Robolectric.buildActivity(MainActivity.class)
                 .create().start().resume().visible().get();
 

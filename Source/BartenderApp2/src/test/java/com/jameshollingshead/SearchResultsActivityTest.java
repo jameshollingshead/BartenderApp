@@ -32,7 +32,7 @@ import junit.framework.Assert;
 public class SearchResultsActivityTest {
 
     @Test
-    public void SearchResultsActivityIsNotNull() throws Exception {
+    public void searchResultsActivityIsNotNull() throws Exception {
         assertTrue(Robolectric.buildActivity(SearchResultsActivity.class).create().get() != null);
     }
 
