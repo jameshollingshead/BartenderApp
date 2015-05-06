@@ -1,17 +1,12 @@
 package com.jameshollingshead;
 
-import android.app.Activity;
-import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import javax.inject.Inject;
+import com.jameshollingshead.helpers.FragmentUtilities;
 
 
 public class MainActivity extends FragmentActivity {
@@ -23,14 +18,10 @@ public class MainActivity extends FragmentActivity {
 
 
       //Create new fragment to be placed in the layout.
-      insertFragmentIntoLayout(new DrinkSearchFragment(), "DrinkSearchFragment", R.id.activity_main);
+      FragmentUtilities.insertFragmentIntoLayout(new DrinkSearchFragment(), "DrinkSearchFragment", R.id.activity_main, this);
   }
 
-    private void insertFragmentIntoLayout(Fragment fragment, String tag, int layout) {
 
-        getSupportFragmentManager().beginTransaction()
-                .add(layout, fragment, tag).commit();
-    }
 
     @Override
     protected void onResume() {
