@@ -2,6 +2,7 @@ package com.jameshollingshead;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 
 import org.junit.Before;
@@ -10,10 +11,13 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
+import org.robolectric.shadows.ShadowActivity;
+import org.robolectric.shadows.ShadowIntent;
 import org.robolectric.util.ActivityController;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.robolectric.RobolectricShadowOfLevel16.shadowOf;
 import android.support.v4.app.FragmentManager;
@@ -54,6 +58,23 @@ public class MainActivityTest {
         assertNotNull("Fragment should have existed", drinkSearchFragment);
 
         assertEquals(drinkSearchFragmentTag, drinkSearchFragment.getTag());
+    }
+
+    @Test
+    public void searchResultsActivityShouldBeLaunchedWhenSearchButtonIsPressedInActivityMain() throws Exception {
+        Activity activity = Robolectric.buildActivity(MainActivity.class)
+                .create().start().resume().visible().get();
+        Button searchButton = (Button) activity
+                .findViewById(R.id.drink_search_search_button);
+
+        Robolectric.clickOn(searchButton);
+
+        ShadowActivity shadowActivity = Robolectric.shadowOf(activity);
+        Intent startedIntent = shadowActivity.getNextStartedActivity();
+        ShadowIntent shadowIntent = Robolectric.shadowOf(startedIntent);
+        assertEquals("Launced different activity from what was expected",
+                SearchResultsActivity.class.getName(), shadowIntent.getComponent().getClassName());
+
     }
 
 }
