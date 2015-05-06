@@ -34,7 +34,6 @@ public class MainActivity extends FragmentActivity {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(MainActivity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getApplicationContext(), SearchResultsActivity.class);
                 startActivity(i);
             }
