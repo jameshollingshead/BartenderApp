@@ -18,9 +18,9 @@ public class MainActivity extends FragmentActivity {
 
 
       //Create new fragment to be placed in the layout.
-      FragmentUtilities.insertFragmentIntoLayout(new DrinkSearchFragment(), "DrinkSearchFragment", R.id.activity_main, this);
+      FragmentUtilities.insertFragmentIntoLayout(new DrinkSearchFragment(),
+              "DrinkSearchFragment", R.id.activity_main, this);
   }
-
 
 
     @Override
