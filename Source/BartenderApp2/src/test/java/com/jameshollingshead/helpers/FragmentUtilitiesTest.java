@@ -44,7 +44,7 @@ public class FragmentUtilitiesTest {
         FragmentUtilities.insertFragmentIntoLayout(new DrinkSearchFragment(), drinkSearchFragmentTag,
                 R.id.activity_main, activity);
 
-        DrinkSearchFragment drinkSearchFragment = (DrinkSearchFragment) ((FragmentActivity) activity)
+        DrinkSearchFragment drinkSearchFragment = (DrinkSearchFragment) activity
                 .getSupportFragmentManager()
                 .findFragmentById(R.id.activity_main);
 
