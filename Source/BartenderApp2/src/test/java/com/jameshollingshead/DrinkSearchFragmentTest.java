@@ -34,9 +34,14 @@ public class DrinkSearchFragmentTest {
 
     @Test
     public void drinkSearchFragmentIsNotNull() throws Exception {
-        DrinkSearchFragment fragment = new DrinkSearchFragment();
-        startFragment(fragment);
-        assertNotNull(fragment);
+
+        Activity activity = Robolectric.buildActivity(MainActivity.class)
+                .create().start().resume().visible().get();
+        assertNotNull(activity);
+        DrinkSearchFragment drinkSearchFragment = (DrinkSearchFragment) ((FragmentActivity) activity)
+                .getSupportFragmentManager()
+                .findFragmentById(R.id.activity_main);
+        assertNotNull(drinkSearchFragment);
     }
 
     @Test

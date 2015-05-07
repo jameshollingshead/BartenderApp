@@ -72,7 +72,7 @@ public class MainActivityTest {
         ShadowActivity shadowActivity = Robolectric.shadowOf(activity);
         Intent startedIntent = shadowActivity.getNextStartedActivity();
         ShadowIntent shadowIntent = Robolectric.shadowOf(startedIntent);
-        assertEquals("Launced different activity from what was expected",
+        assertEquals("Launched different activity from what was expected",
                 SearchResultsActivity.class.getName(), shadowIntent.getComponent().getClassName());
 
     }
