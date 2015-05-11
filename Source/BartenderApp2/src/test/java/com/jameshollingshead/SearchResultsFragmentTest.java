@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import junit.framework.Assert;
@@ -20,6 +21,7 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertTrue;
 import static org.robolectric.util.FragmentTestUtil.startFragment;
@@ -41,5 +43,28 @@ public class SearchResultsFragmentTest {
                 .getSupportFragmentManager()
                 .findFragmentById(R.id.activity_search_results);
         assertNotNull(drinkSearchResultsFragment);
+    }
+
+    @Test
+    public void searchResultsFragmentContainsListView() throws Exception{
+        Activity activity = Robolectric.buildActivity(SearchResultsActivity.class)
+                .create().start().resume().visible().get();
+        assertNotNull(activity);
+
+        ListView listView = (ListView) activity.findViewById(R.id.drink_list_view);
+        assertNotNull(listView);
+    }
+
+    @Test
+    public void hardCodedValuesForDrinkListViewAreFooBarBotBaz() throws Exception {
+        Activity activity = Robolectric.buildActivity(SearchResultsActivity.class)
+                .create().start().resume().visible().get();
+        assertNotNull(activity);
+        ListView listView = (ListView) activity.findViewById(R.id.drink_list_view);
+
+        assertEquals("Foo", listView.getItemAtPosition(0));
+        assertEquals("Bar", listView.getItemAtPosition(1));
+        assertEquals("Bot", listView.getItemAtPosition(2));
+        assertEquals("Baz", listView.getItemAtPosition(3));
     }
 }
