@@ -62,9 +62,9 @@ public class SearchResultsFragmentTest {
         assertNotNull(activity);
         ListView listView = (ListView) activity.findViewById(R.id.drink_list_view);
 
-        assertEquals("Foo", listView.getItemAtPosition(0));
-        assertEquals("Bar", listView.getItemAtPosition(1));
-        assertEquals("Bot", listView.getItemAtPosition(2));
-        assertEquals("Baz", listView.getItemAtPosition(3));
+        assertEquals("Foo2", listView.getItemAtPosition(0));
+        assertEquals("Bar2", listView.getItemAtPosition(1));
+        assertEquals("Bot2", listView.getItemAtPosition(2));
+        assertEquals("Baz2", listView.getItemAtPosition(3));
     }
 }
