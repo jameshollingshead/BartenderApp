@@ -25,7 +25,6 @@ public class DrinkSearchFragment extends Fragment implements OnClickListener{
         View view = inflater.inflate(R.layout.fragment_drinksearch, container, false);
 
         return view;
-
     }
 
     @Override
@@ -37,7 +36,6 @@ public class DrinkSearchFragment extends Fragment implements OnClickListener{
             throw new ClassCastException(activity.toString()
                     + " must implement DrinkSearchInterface");
         }
-
     }
 
     @Override

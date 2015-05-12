@@ -14,6 +14,8 @@ import javax.inject.Inject;
  */
 public class SearchResultsActivity extends FragmentActivity{
 
+    Bundle bundle = new Bundle();
+
     String[] drinkList = new String[] {"Foo2", "Bar2", "Bot2", "Baz2"};
 
     @Override
@@ -21,7 +23,11 @@ public class SearchResultsActivity extends FragmentActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results);
 
-        FragmentUtilities.insertFragmentIntoLayout(new DrinkSearchResultsFragment(drinkList),
+        DrinkSearchResultsFragment drinkSearchResultsFragment = new DrinkSearchResultsFragment();
+        bundle.putStringArray("drinkNamesList", drinkList);
+        drinkSearchResultsFragment.setArguments(bundle);
+
+        FragmentUtilities.insertFragmentIntoLayout(drinkSearchResultsFragment,
                 "DrinkSearchResultsFragment", R.id.activity_search_results, this);
     }
 }

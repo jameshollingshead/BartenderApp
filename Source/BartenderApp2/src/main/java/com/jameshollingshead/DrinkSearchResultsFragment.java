@@ -1,5 +1,6 @@
 package com.jameshollingshead;
 
+import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,16 +16,11 @@ public class DrinkSearchResultsFragment extends Fragment {
 
     ListView listView;
     String[] drinkNamesList;
-    String[] defaultDrinkNames = new String[] {"Foo", "Bar", "Bot", "Baz"};
 
-    DrinkSearchResultsFragment()
-    {
-        drinkNamesList = defaultDrinkNames;
-    }
-
-    public DrinkSearchResultsFragment(String[] drinkList)
-    {
-        drinkNamesList = drinkList;
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        drinkNamesList = getArguments().getStringArray("drinkNamesList");
     }
 
     @Override
@@ -43,7 +39,6 @@ public class DrinkSearchResultsFragment extends Fragment {
         listView = (ListView) getActivity().findViewById(R.id.drink_list_view);
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_expandable_list_item_1, android.R.id.text1, drinkNamesList);
 
         listView.setAdapter(arrayAdapter);
     }
