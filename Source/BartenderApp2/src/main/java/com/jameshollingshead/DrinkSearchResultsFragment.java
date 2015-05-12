@@ -25,12 +25,12 @@ public class DrinkSearchResultsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState)
-    {
+                             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_drink_search_results, container, false);
 
         return view;
     }
+
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -39,6 +39,8 @@ public class DrinkSearchResultsFragment extends Fragment {
         listView = (ListView) getActivity().findViewById(R.id.drink_list_view);
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_expandable_list_item_1, android.R.id.text1,
+                drinkNamesList);
 
         listView.setAdapter(arrayAdapter);
     }
