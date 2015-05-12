@@ -7,6 +7,7 @@ import android.test.suitebuilder.annotation.LargeTest;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
@@ -23,7 +24,10 @@ public class MainEspressoTest extends ActivityInstrumentationTestCase2<MainActiv
         getActivity();
     }
 
-
+    public void testMainActivityWindowExists() throws InterruptedException {
+        onView(withId(R.id.activity_main))
+                .check(matches(isDisplayed()));
+    }
 
     public void testMainActivityWindowHasSearchButton() throws InterruptedException{
         onView(withId(R.id.drink_search_search_button)).check(matches(withText("Search")));
@@ -36,9 +40,9 @@ public class MainEspressoTest extends ActivityInstrumentationTestCase2<MainActiv
     public void testClickingSearchButtonOnDrinkSearchPageOpensSearchResultsPage()
             throws InterruptedException {
 
-        onView((withId(R.id.drink_search_search_button))).perform(click());
+        onView(withId(R.id.drink_search_search_button)).perform(click());
 
-        onView(withId(R.id.drink_Search_Results_TextView))
-                .check(matches(withText("This is the Drink Search Results Screen")));
+        onView(withId(R.id.activity_search_results))
+                .check(matches(isDisplayed()));
     }
 }
