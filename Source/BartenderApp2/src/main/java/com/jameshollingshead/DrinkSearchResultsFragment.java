@@ -1,18 +1,22 @@
 package com.jameshollingshead;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 /**
  * Created by jhollingshead on 5/11/15.
  */
-public class DrinkSearchResultsFragment extends Fragment {
+public class DrinkSearchResultsFragment extends Fragment
+        implements AdapterView.OnItemClickListener{
 
     ListView listView;
     String[] drinkNamesList;
@@ -55,5 +59,14 @@ public class DrinkSearchResultsFragment extends Fragment {
                 drinkNamesList);
 
         listView.setAdapter(arrayAdapter);
+        listView.setOnItemClickListener(this);
+    }
+
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent i =new Intent(getActivity().getApplicationContext(), DrinkRecipeActivity.class);
+        startActivity(i);
+
     }
 }

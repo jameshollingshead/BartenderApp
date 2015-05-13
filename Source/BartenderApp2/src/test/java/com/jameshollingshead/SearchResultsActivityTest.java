@@ -2,6 +2,7 @@ package com.jameshollingshead;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 
 import org.junit.Before;
@@ -10,6 +11,8 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
+import org.robolectric.shadows.ShadowActivity;
+import org.robolectric.shadows.ShadowIntent;
 import org.robolectric.util.ActivityController;
 
 import static org.junit.Assert.assertEquals;
@@ -59,5 +62,23 @@ public class SearchResultsActivityTest {
 
         assertEquals(drinkSearchResultsFragmentTag, drinkSearchResultsFragment.getTag());
     }
+
+    @Test
+    public void clickingOnASearchResultLaunchesTheDrinkRecipeScreen() throws Exception {
+        Activity activity = Robolectric.buildActivity(SearchResultsActivity.class)
+                .create().start().resume().visible().get();
+
+        ListView searchResultsList = (ListView) activity
+                .findViewById(R.id.drink_list_view);
+
+        Robolectric.shadowOf(searchResultsList).performItemClick(0);
+
+        ShadowActivity shadowActivity = Robolectric.shadowOf(activity);
+        Intent startedIntent = shadowActivity.getNextStartedActivity();
+        ShadowIntent shadowIntent = Robolectric.shadowOf(startedIntent);
+        assertEquals("Launched different activity from what was expected",
+                DrinkRecipeActivity.class.getName(), shadowIntent.getComponent().getClassName());
+    }
+
 
 }
