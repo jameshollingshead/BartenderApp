@@ -1,19 +1,9 @@
 package com.jameshollingshead;
 
     import android.app.Activity;
-    import android.app.Fragment;
-    import android.app.FragmentManager;
-    import android.app.FragmentTransaction;
     import android.support.v4.app.FragmentActivity;
-    import android.view.View;
-    import android.widget.Button;
-    import android.widget.EditText;
-    import android.widget.ListView;
-    import android.widget.TextView;
 
-    import junit.framework.Assert;
-
-    import org.junit.Before;
+    import org.junit.Assert;
     import org.junit.Test;
     import org.junit.runner.RunWith;
     import org.robolectric.Robolectric;
@@ -34,6 +24,8 @@ package com.jameshollingshead;
 @Config(manifest = "src/main/AndroidManifest.xml", emulateSdk = 18)
 public class DrinkRecipeActivityTest {
 
+    String drinkRecipeFragmentTag = "DrinkRecipeFragment";
+
     @Test
     public void drinkRecipeActivityIsNotNull() throws Exception {
         org.junit.Assert.assertTrue(Robolectric.buildActivity(DrinkRecipeActivity.class).create().get() != null);
@@ -44,5 +36,20 @@ public class DrinkRecipeActivityTest {
         Activity activity = Robolectric.buildActivity(DrinkRecipeActivity.class).create().get();
 
         org.junit.Assert.assertEquals(R.id.activity_drink_recipe, Robolectric.shadowOf(activity).getContentView().getId());
+    }
+
+    @Test
+    public void theContentViewActivityDrinkRecipeContainsDrinkRecipeFragment() throws Exception {
+
+        Activity activity = Robolectric.buildActivity(DrinkRecipeActivity.class)
+                .create().start().resume().visible().get();
+
+        DrinkRecipeFragment drinkRecipeFragment = (DrinkRecipeFragment) ((FragmentActivity) activity)
+                .getSupportFragmentManager()
+                .findFragmentById(R.id.activity_drink_recipe);
+
+        Assert.assertNotNull("Fragment should have existed", drinkRecipeFragment);
+
+        Assert.assertEquals(drinkRecipeFragmentTag, drinkRecipeFragment.getTag());
     }
 }
