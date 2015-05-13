@@ -16,6 +16,7 @@ public class DrinkSearchResultsFragment extends Fragment {
 
     ListView listView;
     String[] drinkNamesList;
+    public DrinkSearchResultsSetup drinkSearchResultsSetup;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,17 @@ public class DrinkSearchResultsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_drink_search_results, container, false);
 
         return view;
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            drinkSearchResultsSetup = (DrinkSearchResultsSetup) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement DrinkSearchResultsSetup");
+        }
     }
 
 

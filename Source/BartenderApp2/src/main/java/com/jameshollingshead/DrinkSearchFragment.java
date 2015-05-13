@@ -34,7 +34,7 @@ public class DrinkSearchFragment extends Fragment implements OnClickListener{
             drinkSearchSetup = (DrinkSearchSetup) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement DrinkSearchInterface");
+                    + " must implement DrinkSearchSetup");
         }
     }
 

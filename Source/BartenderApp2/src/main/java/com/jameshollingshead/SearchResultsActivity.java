@@ -12,7 +12,8 @@ import javax.inject.Inject;
 /**
  * Created by jhollingshead on 5/5/15.
  */
-public class SearchResultsActivity extends FragmentActivity{
+public class SearchResultsActivity extends FragmentActivity
+    implements DrinkSearchResultsSetup{
 
     Bundle bundle = new Bundle();
 
@@ -23,10 +24,14 @@ public class SearchResultsActivity extends FragmentActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results);
 
+        addDrinkSearchResults();
+    }
+
+    @Override
+    public void addDrinkSearchResults() {
         DrinkSearchResultsFragment drinkSearchResultsFragment = new DrinkSearchResultsFragment();
         bundle.putStringArray("drinkNamesList", drinkList);
         drinkSearchResultsFragment.setArguments(bundle);
-
         FragmentUtilities.insertFragmentIntoLayout(drinkSearchResultsFragment,
                 "DrinkSearchResultsFragment", R.id.activity_search_results, this);
     }

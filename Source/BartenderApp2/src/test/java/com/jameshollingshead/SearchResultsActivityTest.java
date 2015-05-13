@@ -19,6 +19,7 @@ import static org.robolectric.RobolectricShadowOfLevel16.shadowOf;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 
 import junit.framework.Assert;
 
@@ -58,6 +59,5 @@ public class SearchResultsActivityTest {
 
         assertEquals(drinkSearchResultsFragmentTag, drinkSearchResultsFragment.getTag());
     }
-
 
 }
