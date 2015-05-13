@@ -31,6 +31,8 @@ import junit.framework.Assert;
 @Config(manifest = "src/main/AndroidManifest.xml", emulateSdk = 18)
 public class SearchResultsActivityTest {
 
+    String drinkSearchResultsFragmentTag = "DrinkSearchResultsFragment";
+
     @Test
     public void searchResultsActivityIsNotNull() throws Exception {
         assertTrue(Robolectric.buildActivity(SearchResultsActivity.class).create().get() != null);
@@ -42,5 +44,20 @@ public class SearchResultsActivityTest {
 
         assertEquals(R.id.activity_search_results, Robolectric.shadowOf(activity).getContentView().getId());
     }
+
+    @Test
+    public void theContentViewActivitySearchResultsContainsDrinkSearchResultsFragment() throws Exception {
+        Activity activity = Robolectric.buildActivity(SearchResultsActivity.class)
+                .create().start().resume().visible().get();
+
+        DrinkSearchResultsFragment drinkSearchResultsFragment = (DrinkSearchResultsFragment) ((FragmentActivity) activity)
+                .getSupportFragmentManager()
+                .findFragmentById(R.id.activity_search_results);
+
+        assertNotNull("Fragment should have existed", drinkSearchResultsFragment);
+
+        assertEquals(drinkSearchResultsFragmentTag, drinkSearchResultsFragment.getTag());
+    }
+
 
 }
