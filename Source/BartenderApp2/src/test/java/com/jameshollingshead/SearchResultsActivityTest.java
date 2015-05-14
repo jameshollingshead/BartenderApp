@@ -3,6 +3,7 @@ package com.jameshollingshead;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
 import org.junit.Before;
@@ -25,6 +26,9 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import junit.framework.Assert;
+
+import java.io.OutputStream;
+
 
 
 /**
@@ -79,6 +83,5 @@ public class SearchResultsActivityTest {
         assertEquals("Launched different activity from what was expected",
                 DrinkRecipeActivity.class.getName(), shadowIntent.getComponent().getClassName());
     }
-
 
 }
