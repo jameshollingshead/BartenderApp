@@ -83,6 +83,14 @@ public class DrinkRecipeFragmentTest {
         assertNotNull(drinkInstructionsHeaderLabel);
     }
 
+    @Test
+    public void drinkRecipeFragmentDrinkNameIsPassedInViaIntent() throws Exception {
+        Activity activity = createActivity();
+        assertNotNull(activity);
+        TextView drinkNameLabel = (TextView) activity.findViewById(R.id.drink_name_label);
+        assertEquals("Foo Drink", drinkNameLabel.getText());
+    }
+
     public Activity createActivity() {
         Intent intent = new Intent();
         intent.putExtra("DrinkName", "Foo Drink");
