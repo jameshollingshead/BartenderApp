@@ -70,4 +70,23 @@ public class DrinkRecipeFragmentTest {
         assertNotNull(drinkInstructionsLabel);
     }
 
+    @Test
+    public void drinkRecipeFragmentContainsDrinkIngredientsHeaderLabel() throws Exception {
+        Activity activity = Robolectric.buildActivity(DrinkRecipeActivity.class)
+                .create().start().resume().visible().get();
+        assertNotNull(activity);
+        TextView drinkIngredientsHeaderLabel = (TextView) activity.findViewById(R.id.drink_ingredients_header_label);
+        assertNotNull(drinkIngredientsHeaderLabel);
+    }
+
+    @Test
+    public void drinkRecipeFragmentContainsDrinkInstructionsHeaderLabel() throws Exception {
+        Activity activity = Robolectric.buildActivity(DrinkRecipeActivity.class)
+                .create().start().resume().visible().get();
+        assertNotNull(activity);
+        TextView drinkInstructionsHeaderLabel = (TextView) activity.findViewById(R.id.drink_instructions_header_label);
+        assertNotNull(drinkInstructionsHeaderLabel);
+    }
+
+
 }

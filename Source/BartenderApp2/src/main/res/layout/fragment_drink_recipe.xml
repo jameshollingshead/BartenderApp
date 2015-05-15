@@ -11,8 +11,13 @@
         android:layout_height="wrap_content"
         android:text="DRINK RECIPE NAME"
         android:id="@+id/drink_name_label"
-        />
-
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Drink Ingredients"
+        android:id="@+id/drink_ingredients_header_label"
+        android:textStyle="bold"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,6 +27,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Instructions"
+        android:id="@+id/drink_instructions_header_label"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="STEPS TO MAKE DRINK"
         android:id="@+id/drink_instructions_label"/>
+
+
 </LinearLayout>
