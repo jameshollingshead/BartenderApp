@@ -84,4 +84,44 @@ public class SearchResultsActivityTest {
                 DrinkRecipeActivity.class.getName(), shadowIntent.getComponent().getClassName());
     }
 
+    @Test
+    public void clickingOnDrinkFoo2PutsFoo2IntoTheDrinkNameFieldOfTheIntent() throws Exception {
+        Activity activity = Robolectric.buildActivity(SearchResultsActivity.class)
+                .create().start().resume().visible().get();
+
+        ListView searchResultsList = (ListView) activity
+                .findViewById(R.id.drink_list_view);
+
+        Robolectric.shadowOf(searchResultsList).performItemClick(0);
+
+        ShadowActivity shadowActivity = Robolectric.shadowOf(activity);
+        Intent startedIntent = shadowActivity.getNextStartedActivity();
+        ShadowIntent shadowIntent = Robolectric.shadowOf(startedIntent);
+        Bundle bundle = shadowIntent.getExtras();
+        String drinkName = bundle.getString("DrinkName");
+        assertEquals("Launched different activity from what was expected",
+                DrinkRecipeActivity.class.getName(), shadowIntent.getComponent().getClassName());
+        assertEquals(drinkName, "Foo2");
+    }
+
+    @Test
+    public void clickingOnDrinkBar2PutsBar2IntoTheDrinkNameFieldOfTheIntent() throws Exception {
+        Activity activity = Robolectric.buildActivity(SearchResultsActivity.class)
+                .create().start().resume().visible().get();
+
+        ListView searchResultsList = (ListView) activity
+                .findViewById(R.id.drink_list_view);
+
+        Robolectric.shadowOf(searchResultsList).performItemClick(1);
+
+        ShadowActivity shadowActivity = Robolectric.shadowOf(activity);
+        Intent startedIntent = shadowActivity.getNextStartedActivity();
+        ShadowIntent shadowIntent = Robolectric.shadowOf(startedIntent);
+        Bundle bundle = shadowIntent.getExtras();
+        String drinkName = bundle.getString("DrinkName");
+        assertEquals("Launched different activity from what was expected",
+                DrinkRecipeActivity.class.getName(), shadowIntent.getComponent().getClassName());
+        assertEquals(drinkName, "Bar2");
+    }
+
 }

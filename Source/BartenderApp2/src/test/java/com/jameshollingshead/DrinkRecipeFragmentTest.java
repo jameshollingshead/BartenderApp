@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
@@ -34,8 +35,7 @@ public class DrinkRecipeFragmentTest {
     @Test
     public void drinkRecipeFragmentIsNotNull() throws Exception {
 
-        Activity activity = Robolectric.buildActivity(DrinkRecipeActivity.class)
-                .create().start().resume().visible().get();
+        Activity activity = createActivity();
         assertNotNull(activity);
         DrinkRecipeFragment drinkRecipeFragment = (DrinkRecipeFragment) ((FragmentActivity) activity)
                 .getSupportFragmentManager()
@@ -45,8 +45,7 @@ public class DrinkRecipeFragmentTest {
 
     @Test
     public void drinkRecipeFragmentContainsDrinkNameLabel() throws Exception {
-        Activity activity = Robolectric.buildActivity(DrinkRecipeActivity.class)
-                .create().start().resume().visible().get();
+        Activity activity = createActivity();
         assertNotNull(activity);
         TextView drinkNameLabel = (TextView) activity.findViewById(R.id.drink_name_label);
         assertNotNull(drinkNameLabel);
@@ -54,8 +53,7 @@ public class DrinkRecipeFragmentTest {
 
     @Test
     public void drinkRecipeFragmentContainsDrinkIngredientsLabel() throws Exception {
-        Activity activity = Robolectric.buildActivity(DrinkRecipeActivity.class)
-                .create().start().resume().visible().get();
+        Activity activity = createActivity();
         assertNotNull(activity);
         TextView drinkIngredientsLabel = (TextView) activity.findViewById(R.id.drink_ingredients_label);
         assertNotNull(drinkIngredientsLabel);
@@ -63,8 +61,7 @@ public class DrinkRecipeFragmentTest {
 
     @Test
     public void drinkRecipeFragmentContainsDrinkInstructionsLabel() throws Exception {
-        Activity activity = Robolectric.buildActivity(DrinkRecipeActivity.class)
-                .create().start().resume().visible().get();
+        Activity activity = createActivity();
         assertNotNull(activity);
         TextView drinkInstructionsLabel = (TextView) activity.findViewById(R.id.drink_instructions_label);
         assertNotNull(drinkInstructionsLabel);
@@ -72,8 +69,7 @@ public class DrinkRecipeFragmentTest {
 
     @Test
     public void drinkRecipeFragmentContainsDrinkIngredientsHeaderLabel() throws Exception {
-        Activity activity = Robolectric.buildActivity(DrinkRecipeActivity.class)
-                .create().start().resume().visible().get();
+        Activity activity = createActivity();
         assertNotNull(activity);
         TextView drinkIngredientsHeaderLabel = (TextView) activity.findViewById(R.id.drink_ingredients_header_label);
         assertNotNull(drinkIngredientsHeaderLabel);
@@ -81,12 +77,18 @@ public class DrinkRecipeFragmentTest {
 
     @Test
     public void drinkRecipeFragmentContainsDrinkInstructionsHeaderLabel() throws Exception {
-        Activity activity = Robolectric.buildActivity(DrinkRecipeActivity.class)
-                .create().start().resume().visible().get();
+        Activity activity = createActivity();
         assertNotNull(activity);
         TextView drinkInstructionsHeaderLabel = (TextView) activity.findViewById(R.id.drink_instructions_header_label);
         assertNotNull(drinkInstructionsHeaderLabel);
     }
 
+    public Activity createActivity() {
+        Intent intent = new Intent();
+        intent.putExtra("DrinkName", "Foo Drink");
+        Activity activity = Robolectric.buildActivity(DrinkRecipeActivity.class)
+                .withIntent(intent).create().start().resume().visible().get();
 
+        return activity;
+    }
 }

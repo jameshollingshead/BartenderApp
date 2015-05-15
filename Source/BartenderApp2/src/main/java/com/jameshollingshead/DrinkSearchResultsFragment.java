@@ -65,7 +65,9 @@ public class DrinkSearchResultsFragment extends Fragment
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
         Intent i =new Intent(getActivity().getApplicationContext(), DrinkRecipeActivity.class);
+        i.putExtra("DrinkName", listView.getItemAtPosition(position).toString());
         startActivity(i);
 
     }

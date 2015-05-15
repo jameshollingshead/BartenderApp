@@ -1,6 +1,7 @@
 package com.jameshollingshead;
 
     import android.app.Activity;
+    import android.content.Intent;
     import android.support.v4.app.FragmentActivity;
 
     import org.junit.Assert;
@@ -40,9 +41,11 @@ public class DrinkRecipeActivityTest {
 
     @Test
     public void theContentViewActivityDrinkRecipeContainsDrinkRecipeFragment() throws Exception {
+        Intent intent = new Intent();
+        intent.putExtra("DrinkName", "FooDrink");
 
         Activity activity = Robolectric.buildActivity(DrinkRecipeActivity.class)
-                .create().start().resume().visible().get();
+                .withIntent(intent).create().start().resume().visible().get();
 
         DrinkRecipeFragment drinkRecipeFragment = (DrinkRecipeFragment) ((FragmentActivity) activity)
                 .getSupportFragmentManager()

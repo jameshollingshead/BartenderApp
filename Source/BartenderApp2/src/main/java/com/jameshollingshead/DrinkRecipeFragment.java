@@ -36,6 +36,18 @@ public class DrinkRecipeFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        String drinkNameString;
+        TextView drinkName = (TextView)this.getActivity().findViewById(R.id.drink_name_label);
+        Bundle bundle = getActivity().getIntent().getExtras();
+
+        if(bundle.getString("DrinkName") != null) {
+            drinkNameString = bundle.getString("DrinkName");
+        }
+        else {
+            drinkNameString = "I couldn't find my name";
+        }
+        drinkName.setText(drinkNameString);
+
         TextView ingredients = new TextView(this.getActivity());
         ingredients = (TextView)this.getActivity().findViewById(R.id.drink_ingredients_label);
         ingredients.setText(fooIngredients);
